@@ -33,7 +33,6 @@ public class TelaCadastroPrincipal extends TelaCadastroBase {
 			public void actionPerformed(ActionEvent e) {
 				ReportManager rm = new ReportManager();
 				rm.imprimir();
-				
 			}
 		});
 		super.mntmExportarpdf.addActionListener(new ActionListener() {
@@ -67,7 +66,6 @@ public class TelaCadastroPrincipal extends TelaCadastroBase {
 					}
 				}
 			}
-			
 		});
 		
 	}
