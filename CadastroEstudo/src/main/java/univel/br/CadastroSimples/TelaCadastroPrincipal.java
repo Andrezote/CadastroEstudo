@@ -29,7 +29,6 @@ public class TelaCadastroPrincipal extends TelaCadastroBase {
 
 	private void configuraMenu() {
 		super.mntmImprimir.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ReportManager rm = new ReportManager();
@@ -37,10 +36,16 @@ public class TelaCadastroPrincipal extends TelaCadastroBase {
 				
 			}
 		});
+		super.mntmExportarpdf.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ReportManager rm = new ReportManager();
+				rm.exportar();
+			}
+		});
 		
 	}
-
-
 
 	private void configuraTabela() {
 		ContatoDao cD = new ContatoDao();
