@@ -21,6 +21,7 @@ import javax.swing.JMenuItem;
 
 public class TelaCadastroBase extends JFrame {
 
+	protected static final String CARREGADO_PARA_ATUALIZAR = "Carregado para atualizar";
 	private JPanel contentPane;
 	protected JTable table;
 	protected JTextField txfId;
@@ -34,25 +35,7 @@ public class TelaCadastroBase extends JFrame {
 	protected JMenuItem mntmImprimir;
 	protected JMenuItem mntmExportarpdf;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaCadastroBase frame = new TelaCadastroBase();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public TelaCadastroBase() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -111,7 +94,7 @@ public class TelaCadastroBase extends JFrame {
 		panel.add(txfId, gbc_txfId);
 		txfId.setColumns(5);
 		
-		lblCarregadoParaAtualizar = new JLabel("Carregado para atualizar");
+		lblCarregadoParaAtualizar = new JLabel(CARREGADO_PARA_ATUALIZAR);
 		GridBagConstraints gbc_lblCarregadoParaAtualizar = new GridBagConstraints();
 		gbc_lblCarregadoParaAtualizar.anchor = GridBagConstraints.WEST;
 		gbc_lblCarregadoParaAtualizar.insets = new Insets(0, 0, 5, 0);
