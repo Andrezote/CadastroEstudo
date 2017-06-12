@@ -58,4 +58,15 @@ public class ContatoModel extends AbstractTableModel{
 		return lista.get(idx);
 	}
 
+	public void excluir(Contato contato) {
+		this.lista.remove(contato);
+		this.fireTableDataChanged();
+	}
+
+	public void addContato(Contato c) {
+		this.lista.add(c);
+		super.fireTableDataChanged();
+		
+	}
+
 }

@@ -24,7 +24,23 @@ public class TelaCadastroPrincipal extends TelaCadastroBase {
 		LimparCampos();
 		configuraBotoes();
 		configuraTabela();
+		configuraMenu();
 	}
+
+	private void configuraMenu() {
+		super.mntmImprimir.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ReportManager rm = new ReportManager();
+				rm.imprimir();
+				
+			}
+		});
+		
+	}
+
+
 
 	private void configuraTabela() {
 		ContatoDao cD = new ContatoDao();
@@ -93,11 +109,25 @@ public class TelaCadastroPrincipal extends TelaCadastroBase {
 	}
 
 	protected void excluir() {
-		
+		this.modelo.excluir(contatoSelecionado);
 	}
 
 	protected void salvar() {
-		
+		if(contatoSelecionado == null){
+			Contato c = new Contato();
+			c.setId(Integer.parseInt(super.txfId.getText()));
+			c.setNome(super.txfNome.getText());
+			c.setTelefone(super.txfTelefone.getText());
+			
+			this.modelo.addContato(c);
+		}else{
+			contatoSelecionado.setId(Integer.parseInt(super.txfId.getText()));
+			contatoSelecionado.setNome(super.txfNome.getText());
+			contatoSelecionado.setTelefone(super.txfTelefone.getText());
+			
+			LimparCampos();
+			this.modelo.fireTableDataChanged();
+		}
 	}
 
 	protected void novo() {
